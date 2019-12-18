@@ -74,7 +74,7 @@ end
 
 print "Today, #{player_one} is X's and #{player_two}, you are O's."
 puts
-print "Would you like to see the rules? (y/n)"
+puts "Would you like to see the rules? (y/n): "
 rules_answer = gets.chomp.to_s.downcase
 puts
 
@@ -83,7 +83,27 @@ puts
 puts "Today, #{player_one}, you will go first."
 puts
 
-
+puts "#{player_one} this is the board, choose your move: "
+puts 
+puts "Shows board with current moves and the available numbers"
+puts
+puts "#{player_two} now it's your turn, choose your move: "
+puts
+puts "Updates board with the second player move."
+puts
+puts "Illegal move by any of the players"
+puts
+puts "That's not one of the available moves #{player_one}/#{player_two}, try with a different one."
+puts
+puts "This process repeats until the game is over"
+puts
+puts "#{player_one} your winner congratulations"
+puts
+puts "#{player_two} your winner congratulations"
+puts
+puts "No winners this time. Good luck on the next time. Should i delete your hard drive? (Y/Y)"
+puts
+puts "Play again? (Y/N)"
 #Game Intructions
 
 
