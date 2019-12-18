@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
+require './lib/game_logic.rb'
 
+=begin
 #Game Startup
 puts
 print "Welcome, to Andres and Rory's Amazing"
@@ -24,11 +26,13 @@ puts "Created by:
 puts
 sleep(3)
 puts
+=end
 
-
+#GET / STORE PLAYER INFO
 ellipsis = "."
 print "Player one, please enter your name: "
-player_one = gets.chomp
+player_one_name = gets.chomp
+@player_one = Player.new(player_one_name, "X")
 print ellipsis
 sleep(0.7)
 print "."
@@ -37,14 +41,15 @@ print "."
 sleep(1.6)
 puts
 puts
-print "Welcome #{player_one}!"
+print "Welcome #{@player_one.name}!"
 sleep(1.6)
 puts
 puts
 
 ellipsis = "."
 print "Player two, please enter your name: "
-player_two = gets.chomp
+player_two_name = gets.chomp
+@player_two = Player.new(player_two_name, "O")
 print ellipsis
 sleep(0.7)
 print "."
@@ -53,25 +58,12 @@ print "."
 sleep(1.6)
 puts
 puts
-print "Welcome #{player_two}!"
+print "Welcome #{@player_two.name}!"
 sleep(1.6)
 puts
 puts
 
-
-def rules_question(rules_answer)
-  if rules_answer.match(/y/)
-    print "Tic-Tac-Toe is a game played on a simple 3-by-3 board. In this game, you'll choose a number from 1 to 9 to select a spot to place your X or O (like a book reads). 
-    In order to win, you must align 3 of your X's or O's in a straight line either horizontally, vertically or diagonally. If neither player manages to line up their X's or O's, the game is a draw."
-    puts
-    print "Everyone Ready?"
-  else
-    print "Excellent!"
-    puts
-  end
-end
-
-print "Today, #{player_one} is X's and #{player_two}, you are O's."
+print "Today, #{@player_two.name} is X's and #{@player_two.name}, you are O's."
 puts
 puts "Would you like to see the rules? (y/n): "
 rules_answer = gets.chomp.to_s.downcase
@@ -79,28 +71,29 @@ puts
 
 rules_question(rules_answer)
 puts
-puts "Today, #{player_one}, you will go first."
+puts "Today, #{@player_two.name}, you will go first."
 puts
 
-puts "#{player_one} this is the board, choose your move: "
+
+#GAME FLOW
+puts "#{@player_two.name} this is the board, choose your move: "
 puts 
 puts "Shows board with current moves and the available numbers"
 puts
-puts "#{player_two} now it's your turn, choose your move: "
+puts "#{@player_two.name} now it's your turn, choose your move: "
 puts
 puts "Updates board with the second player move."
 puts
 puts "Illegal move by any of the players"
 puts
-puts "That's not one of the available moves #{player_one}/#{player_two}, try with a different one."
+puts "That's not one of the available moves #{@player_one.name}/#{@player_two.name}, try with a different one."
 puts
 puts "This process repeats until the game is over"
 puts
-puts "#{player_one} your winner congratulations"
+puts "#{@player_two.name} your winner congratulations"
 puts
-puts "#{player_two} your winner congratulations"
+puts "#{@player_two.name} your winner congratulations"
 puts
 puts "No winners this time. Good luck on the next time. Should i delete your hard drive? (Y/Y)"
 puts
 puts "Play again? (Y/N)"
-
