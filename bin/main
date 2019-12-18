@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
 #Game Startup
-=begin
 puts
 print "Welcome, to Andres and Rory's Amazing"
 puts
@@ -26,7 +25,7 @@ puts
 sleep(3)
 puts
 
-=end
+
 ellipsis = "."
 print "Player one, please enter your name: "
 player_one = gets.chomp
@@ -104,7 +103,5 @@ puts
 puts "No winners this time. Good luck on the next time. Should i delete your hard drive? (Y/Y)"
 puts
 puts "Play again? (Y/N)"
-#Game Intructions
-
 
 
