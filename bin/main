@@ -1,3 +1,107 @@
 #!/usr/bin/env ruby
 
-puts "Hello World"
+#Game Startup
+puts
+print "Welcome, to Andres and Rory's Amazing"
+puts
+sleep(2)
+puts
+
+print "
+  ████████╗██╗ ██████╗              ████████╗ █████╗  ██████╗              ████████╗ ██████╗ ███████╗
+  ╚══██╔══╝██║██╔════╝              ╚══██╔══╝██╔══██╗██╔════╝              ╚══██╔══╝██╔═══██╗██╔════╝
+     ██║   ██║██║         █████╗       ██║   ███████║██║         █████╗       ██║   ██║   ██║█████╗  
+     ██║   ██║██║         ╚════╝       ██║   ██╔══██║██║         ╚════╝       ██║   ██║   ██║██╔══╝  
+     ██║   ██║╚██████╗                 ██║   ██║  ██║╚██████╗                 ██║   ╚██████╔╝███████╗
+     ╚═╝   ╚═╝ ╚═════╝                 ╚═╝   ╚═╝  ╚═╝ ╚═════╝                 ╚═╝    ╚═════╝ ╚══════╝
+                                                                                                     
+"
+puts
+puts "Created by:
+        
+        Andres Perez [https://github.com/queeksm] and; 
+        Rory Hellier [https://github.com/Rhelli]"
+puts
+sleep(3)
+puts
+
+
+ellipsis = "."
+print "Player one, please enter your name: "
+player_one = gets.chomp
+print ellipsis
+sleep(0.7)
+print "."
+sleep(0.7)
+print "."
+sleep(1.6)
+puts
+puts
+print "Welcome #{player_one}!"
+sleep(1.6)
+puts
+puts
+
+ellipsis = "."
+print "Player two, please enter your name: "
+player_two = gets.chomp
+print ellipsis
+sleep(0.7)
+print "."
+sleep(0.7)
+print "."
+sleep(1.6)
+puts
+puts
+print "Welcome #{player_two}!"
+sleep(1.6)
+puts
+puts
+
+
+def rules_question(rules_answer)
+  if rules_answer.match(/y/)
+    print "Tic-Tac-Toe is a game played on a simple 3-by-3 board. In this game, you'll choose a number from 1 to 9 to select a spot to place your X or O (like a book reads). 
+    In order to win, you must align 3 of your X's or O's in a straight line either horizontally, vertically or diagonally. If neither player manages to line up their X's or O's, the game is a draw."
+    puts
+    print "Everyone Ready?"
+  else
+    print "Excellent!"
+    puts
+  end
+end
+
+print "Today, #{player_one} is X's and #{player_two}, you are O's."
+puts
+puts "Would you like to see the rules? (y/n): "
+rules_answer = gets.chomp.to_s.downcase
+puts
+
+rules_question(rules_answer)
+puts
+puts "Today, #{player_one}, you will go first."
+puts
+
+puts "#{player_one} this is the board, choose your move: "
+puts 
+puts "Shows board with current moves and the available numbers"
+puts
+puts "#{player_two} now it's your turn, choose your move: "
+puts
+puts "Updates board with the second player move."
+puts
+puts "Illegal move by any of the players"
+puts
+puts "That's not one of the available moves #{player_one}/#{player_two}, try with a different one."
+puts
+puts "This process repeats until the game is over"
+puts
+puts "#{player_one} your winner congratulations"
+puts
+puts "#{player_two} your winner congratulations"
+puts
+puts "No winners this time. Good luck on the next time. Should i delete your hard drive? (Y/Y)"
+puts
+puts "Play again? (Y/N)"
+
+
