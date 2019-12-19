@@ -34,36 +34,12 @@ class Board
   public
 
   def set_cell(x,y,value)
-    get_cell(x,y).value = value
-  end
-
-
-  private
-  
-  def human_input(number)
-    case number
-    when number = 1
-      coordinates = [0,0]     
-    when number = 2
-      coordinates = [0,1]     
-    when number = 3
-      coordinates = [0,2]
-    when number = 4
-      coordinates = [1,0]
-    when number = 5
-      coordinates = [1,1]
-    when number = 6
-      coordinates = [1,2]
-    when number = 7
-      coordinates = [2,0]
-    when number = 8
-      coordinates = [2,1]
-    when number = 9
-      coordinates = [2,2]
-    else
-      false      
+    if get_cell(x,y).value != ""
+      return false
     end
-  end 
+    get_cell(x,y).value = value
+    return true
+  end
 
   public
 
@@ -93,7 +69,7 @@ end
 
 class Game
   attr_reader :players, :board, :player_one, :player_two
-  def initialize(players, board = Board.new)
+  def initialize(players = players_generator, board = Board.new)
     @players = players
     @board = board
     @player_one, @player_two = players.shuffle
@@ -104,13 +80,28 @@ class Game
   end
 
   def ask_move
-    puts "#{@player_one.name}, please enter a number from 1 to 9 to choose your position."
+    puts "#{@player_one.name}, please enter a number from 1 to 9 to choose your position."    
+  end
+
+  def ask_move_error
+    puts "#{@player_one.name}, please enter a number from 1 to 9 or select a cell that it's not taken. This is Tic-Tac-toe nort rocket science"    
   end
 
   def get_move(human_input = gets.chomp)
+    range = ['1','2','3','4','5','6','7','8','9']
+    return false if !range.include?(human_input)
     human_to_coord(human_input)
   end
 
+  def players_generator
+    puts "Player One please tell us your name: "
+    @player_one = Player.new(gets.chomp,"X")
+    puts "Lovely"
+    puts "Now player two how should we call you?: "
+    @player_two = Player.new(gets.chomp,"0")
+    puts "Great!"
+    return [@player_one,@player_two]
+  end
 
   def human_to_coord(human_input)
     map = {
@@ -143,14 +134,40 @@ class Game
     end
   end
 
+  def rules_question(rules_answer = gets.chomp.downcase)
+    if rules_answer.match(/y/)
+      print "Tic-Tac-Toe is a game played on a simple 3-by-3 board. In this game, you'll choose a number from 1 to 9 to select a spot to place your X or O (like a book reads). In order to win, you must align 3 of your X's or O's in a straight line either horizontally, vertically or diagonally. If neither player manages to line up their X's or O's, the game is a draw."
+      puts
+      print "Everyone Ready?"
+    else
+      print "Excellent!"
+      puts
+    end
+  end
+
   def play_mode
+    puts "Would you like to knwo the RULES?? : (Y/N)"
+    rules_question
     puts "Congratulations #{@player_one.name}, you are player one, so you will go first!"
-    while 1
+    turn_counter = 1
+    while turn_counter < 10
       puts Board.new
       puts
       puts ask_move
-      x, y = get_move
-      board.set_cell(x, y, @player_one.color)
+      errors = 0 
+      while true
+        puts ask_move_error if errors > 0
+        breaking_condition = get_move       
+        if breaking_condition != false          
+          x, y = breaking_condition
+          secondary_condition = board.set_cell(x, y, @player_one.color)
+          if secondary_condition != false
+            board.set_cell(x, y, @player_one.color)
+            break
+          end                      
+        end
+        errors += 1
+      end
       if board.game_over
         puts game_over_message
         puts rematch
@@ -159,7 +176,9 @@ class Game
       else
         turns_switch
       end
+      turn_counter += 1
     end
+    puts game_over_message
   end
   
   def rematch
@@ -187,17 +206,4 @@ class Game
     end
   end
 
-end
-
-
-
-def rules_question(rules_answer)
-  if rules_answer.match(/y/)
-    print "Tic-Tac-Toe is a game played on a simple 3-by-3 board. In this game, you'll choose a number from 1 to 9 to select a spot to place your X or O (like a book reads). In order to win, you must align 3 of your X's or O's in a straight line either horizontally, vertically or diagonally. If neither player manages to line up their X's or O's, the game is a draw."
-    puts
-    print "Everyone Ready?"
-  else
-    print "Excellent!"
-    puts
-  end
 end

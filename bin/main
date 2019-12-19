@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
-require './lib/game_logic.rb'
+require '../lib/game_logic.rb'
 
-=begin
 #Game Startup
 puts
 print "Welcome, to Andres and Rory's Amazing"
@@ -24,82 +23,8 @@ puts "Created by:
         Andres Perez [https://github.com/queeksm] and; 
         Rory Hellier [https://github.com/Rhelli]"
 puts
+puts "LOADING..."
 sleep(3)
 puts
 
-#GET / STORE PLAYER INFO
-ellipsis = "."
-print "Player one, please enter your name: "
-player_one_name = gets.chomp
-@player_one = Player.new(player_one_name, "X")
-print ellipsis
-sleep(0.1)
-print "."
-sleep(0.1)
-print "."
-sleep(0.1)
-puts
-puts
-print "Welcome #{@player_one.name}!"
-sleep(0.1)
-puts
-puts
-
-ellipsis = "."
-print "Player two, please enter your name: "
-player_two_name = gets.chomp
-@player_two = Player.new(player_two_name, "O")
-print ellipsis
-sleep(0.1)
-print "."
-sleep(0.1)
-print "."
-sleep(0.1)
-puts
-puts
-print "Welcome #{@player_two.name}!"
-sleep(0.1)
-puts
-puts
-
-print "Today, #{@player_one.name} is X's and #{@player_two.name}, you are O's."
-puts
-puts "Would you like to see the rules? (y/n): "
-rules_answer = gets.chomp.to_s.downcase
-puts
-
-rules_question(rules_answer)
-puts
-puts "Today, #{@player_two.name}, you will go first."
-puts
-
-
-#GAME FLOW
-puts "#{@player_two.name} this is the board, choose your move: "
-puts 
-puts "Shows board with current moves and the available numbers"
-puts
-puts "#{@player_two.name} now it's your turn, choose your move: "
-puts
-puts "Updates board with the second player move."
-puts
-puts "Illegal move by any of the players"
-puts
-puts "That's not one of the available moves #{@player_one.name}/#{@player_two.name}, try with a different one."
-puts
-puts "This process repeats until the game is over"
-puts
-puts "#{@player_two.name} your winner congratulations"
-puts
-puts "#{@player_two.name} your winner congratulations"
-puts
-puts "No winners this time. Good luck on the next time. Should i delete your hard drive? (Y/Y)"
-puts
-puts "Play again? (Y/N)"
-=end
-
-@player_one = Player.new("James", "X")
-@player_two = Player.new("Jim", "O")
-@players = [@player_one, @player_two]
-
-Game.new(@players).play_mode
+Game.new.play_mode
