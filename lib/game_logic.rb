@@ -71,10 +71,14 @@ class Board
     false
   end
 
+  [x  |  x  |   x]
 
-  def winner
+
+
+  def winning_positions
     
-  end
+      if grid[0, 0] == grid[0, 1] && grid[0, 1] == grid[0, 2]
+      return true
 end
 
 
