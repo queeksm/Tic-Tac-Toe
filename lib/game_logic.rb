@@ -118,6 +118,31 @@ class Game
     return map[human_input]
   end
 
+  def visual_grid
+    board_visual = "
+    +-----+-----+-----+
+    |  _  |  _  |  _  |
+    +-----+-----+-----+
+    |  _  |  _  |  _  |
+    +-----+-----+-----+
+    |  _  |  _  |  _  |
+    +-----+-----+-----+
+  "
+  end
+  
+    "1" = board_visual.match(\W){1}
+    "2" = board_visual.match(\W){2}
+    "3" = board_visual.match(\W){3}
+    "4" = 
+    "5" = 
+    "6" = 
+    "7" = 
+    "8" = 
+    "9" = 
+
+  
+  end
+
   def game_over_message
     if board.game_over == :winner
       return "
@@ -152,6 +177,7 @@ class Game
     turn_counter = 1
     while turn_counter < 10
       puts Board.new
+      puts Game.visual
       puts
       puts ask_move
       errors = 0 
@@ -164,7 +190,7 @@ class Game
           if secondary_condition != false
             board.set_cell(x, y, @player_one.color)
             break
-          end                      
+          end
         end
         errors += 1
       end

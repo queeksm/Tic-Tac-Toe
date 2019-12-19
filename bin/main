@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
-require '../lib/game_logic.rb'
-
+require './lib/game_logic.rb'
+=begin
 #Game Startup
 puts
 print "Welcome, to Andres and Rory's Amazing"
@@ -26,5 +26,22 @@ puts
 puts "LOADING..."
 sleep(3)
 puts
+=end
 
-Game.new.play_mode
+def visual_grid
+        board_visual = "
+        +-----+-----+-----+
+        |  _  |  _  |  _  |
+        +-----+-----+-----+
+        |  _  |  _  |  _  |
+        +-----+-----+-----+
+        |  _  |  _  |  _  |
+        +-----+-----+-----+
+      "
+      end
+      
+        "1" = board_visual.match(\W){1}
+
+        
+      
+end
