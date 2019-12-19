@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require '../lib/game_logic.rb'
+require './lib/game_logic.rb'
 
 =begin
 #Game Startup
@@ -26,7 +26,6 @@ puts "Created by:
 puts
 sleep(3)
 puts
-
 
 #GET / STORE PLAYER INFO
 ellipsis = "."
@@ -99,18 +98,8 @@ puts
 puts "Play again? (Y/N)"
 =end
 
-board = Board.new
+@player_one = Player.new("James", "X")
+@player_two = Player.new("Jim", "O")
+@players = [@player_one, @player_two]
 
-=begin
-[ , ,x]
-[ ,x, ]
-[x, , ]
-
-=end
-
-board.set_cell(0,2,"x")
-board.set_cell(1,1,"x")
-board.set_cell(2,0,"x")
-
-
-puts board.game_over
+Game.new(@players).play_mode

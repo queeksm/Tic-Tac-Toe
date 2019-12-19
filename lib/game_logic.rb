@@ -89,6 +89,103 @@ class Board
     end
     false
   end  
+end
+
+class Game
+  attr_reader :players, :board, :player_one, :player_two
+  def initialize(players, board = Board.new)
+    @players = players
+    @board = board
+    @player_one, @player_two = players.shuffle
+  end
+
+  def turns_switch
+    @player_one, @player_two = @player_two, @player_one
+  end
+
+  def ask_move
+    puts "#{@player_one.name}, please enter a number from 1 to 9 to choose your position."
+  end
+
+  def get_move(human_input = gets.chomp)
+    human_to_coord(human_input)
+  end
+
+
+  def human_to_coord(human_input)
+    map = {
+      "1" => [0,0],
+      "2" =>  [0,1],
+      "3" =>  [0,2],
+      "4" =>  [1,0],
+      "5" =>  [1,1],
+      "6" =>  [1,2],
+      "7" =>  [2,0],
+      "8" =>  [2,1],
+      "9" =>  [2,2]
+    }
+    return map[human_input]
+  end
+
+  def game_over_message
+    if board.game_over == :winner
+      return "
+      ██╗    ██╗██╗███╗   ██╗███╗   ██╗███████╗██████╗ ██╗
+      ██║    ██║██║████╗  ██║████╗  ██║██╔════╝██╔══██╗██║
+      ██║ █╗ ██║██║██╔██╗ ██║██╔██╗ ██║█████╗  ██████╔╝██║
+      ██║███╗██║██║██║╚██╗██║██║╚██╗██║██╔══╝  ██╔══██╗╚═╝
+      ╚███╔███╔╝██║██║ ╚████║██║ ╚████║███████╗██║  ██║██╗
+       ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝
+                                                    
+      #{@player_one.name} has won the game! #{@player_two.name}, we suggest you learn either how to play or how to cheat."
+    else
+      return "The game has ended in a tie. You both suck!"
+    end
+  end
+
+  def play_mode
+    puts "Congratulations #{@player_one.name}, you are player one, so you will go first!"
+    while 1
+      puts Board.new
+      puts
+      puts ask_move
+      x, y = get_move
+      board.set_cell(x, y, @player_one.color)
+      if board.game_over
+        puts game_over_message
+        puts rematch
+        Board.new
+        return
+      else
+        turns_switch
+      end
+    end
+  end
+  
+  def rematch
+    puts
+    puts "Would you like to play again? (Y/N)"
+    rematch_answer = gets.chomp.downcase
+    if rematch_answer.match(/y/)
+      puts
+      print "Excellent choice! #{@player_two}, we'd suggest playing better this time if you want to beat #{@player_one}...."
+      sleep(1)
+      puts
+      print "Resetting Game."
+      sleep(0.1)
+      print "."
+      sleep(0.1)
+      print "."
+      sleep(0.1)
+      print "."
+      system "clear"
+      Game.new(@players).play_mode
+    else
+      puts
+      print "Thank you for playing! Goodbye!"
+      
+    end
+  end
 
 end
 
