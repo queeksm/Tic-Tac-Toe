@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require './lib/game_logic.rb'
+require '../lib/game_logic.rb'
 
 =begin
 #Game Startup
@@ -26,7 +26,7 @@ puts "Created by:
 puts
 sleep(3)
 puts
-=end
+
 
 #GET / STORE PLAYER INFO
 ellipsis = "."
@@ -34,15 +34,15 @@ print "Player one, please enter your name: "
 player_one_name = gets.chomp
 @player_one = Player.new(player_one_name, "X")
 print ellipsis
-sleep(0.7)
+sleep(0.1)
 print "."
-sleep(0.7)
+sleep(0.1)
 print "."
-sleep(1.6)
+sleep(0.1)
 puts
 puts
 print "Welcome #{@player_one.name}!"
-sleep(1.6)
+sleep(0.1)
 puts
 puts
 
@@ -51,19 +51,19 @@ print "Player two, please enter your name: "
 player_two_name = gets.chomp
 @player_two = Player.new(player_two_name, "O")
 print ellipsis
-sleep(0.7)
+sleep(0.1)
 print "."
-sleep(0.7)
+sleep(0.1)
 print "."
-sleep(1.6)
+sleep(0.1)
 puts
 puts
 print "Welcome #{@player_two.name}!"
-sleep(1.6)
+sleep(0.1)
 puts
 puts
 
-print "Today, #{@player_two.name} is X's and #{@player_two.name}, you are O's."
+print "Today, #{@player_one.name} is X's and #{@player_two.name}, you are O's."
 puts
 puts "Would you like to see the rules? (y/n): "
 rules_answer = gets.chomp.to_s.downcase
@@ -97,3 +97,14 @@ puts
 puts "No winners this time. Good luck on the next time. Should i delete your hard drive? (Y/Y)"
 puts
 puts "Play again? (Y/N)"
+=end
+
+board = Board.new
+
+board.set_cell(0,0,"X")
+board.set_cell(0,1,"0")
+board.set_cell(0,2,"X")
+
+x = "0"
+
+puts board.get_cell(0,0).value
