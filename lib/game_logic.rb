@@ -1,7 +1,8 @@
 # frozen_string_literal: true
+
 class Cell
   attr_accessor :value
-  def initialize(value = "")
+  def initialize(value = " ")
     @value = value
   end
 end
@@ -34,7 +35,7 @@ class Board
   public
 
   def set_cell(x,y,value)
-    if get_cell(x,y).value != ""
+    if get_cell(x,y).value != " "
       return false
     end
     get_cell(x,y).value = value
@@ -51,16 +52,16 @@ class Board
   private
   def winner?
     for n in 0..2
-      if (get_cell(n, 0).value == get_cell(n, 1).value && get_cell(n, 1).value == get_cell(n, 2).value) && get_cell(n,0).value != ""
+      if (get_cell(n, 0).value == get_cell(n, 1).value && get_cell(n, 1).value == get_cell(n, 2).value) && get_cell(n,0).value != " "
         return true
       end
     end
     for n in 0..2
-      if (get_cell(0,n).value == get_cell(1,n).value && get_cell(1,n).value == get_cell(2,n).value) && get_cell(0,n).value != ""
+      if (get_cell(0,n).value == get_cell(1,n).value && get_cell(1,n).value == get_cell(2,n).value) && get_cell(0,n).value != " "
         return true
       end
     end
-    if ((get_cell(0,0).value == get_cell(1,1).value && get_cell(1,1).value == get_cell(2,2).value) && get_cell(0,0).value != "") || ((get_cell(0,2).value == get_cell(1,1).value && get_cell(1,1).value == get_cell(2,0).value) && get_cell(1,1).value != "")
+    if ((get_cell(0,0).value == get_cell(1,1).value && get_cell(1,1).value == get_cell(2,2).value) && get_cell(0,0).value != " ") || ((get_cell(0,2).value == get_cell(1,1).value && get_cell(1,1).value == get_cell(2,0).value) && get_cell(1,1).value != " ")
       return true
     end
     false
@@ -118,31 +119,6 @@ class Game
     return map[human_input]
   end
 
-  def visual_grid
-    board_visual = "
-    +-----+-----+-----+
-    |  _  |  _  |  _  |
-    +-----+-----+-----+
-    |  _  |  _  |  _  |
-    +-----+-----+-----+
-    |  _  |  _  |  _  |
-    +-----+-----+-----+
-  "
-  end
-  
-    "1" = board_visual.match(\W){1}
-    "2" = board_visual.match(\W){2}
-    "3" = board_visual.match(\W){3}
-    "4" = 
-    "5" = 
-    "6" = 
-    "7" = 
-    "8" = 
-    "9" = 
-
-  
-  end
-
   def game_over_message
     if board.game_over == :winner
       return "
@@ -155,8 +131,31 @@ class Game
                                                     
       #{@player_one.name} has won the game! #{@player_two.name}, we suggest you learn either how to play or how to cheat."
     else
-      return "The game has ended in a tie. You both suck!"
+      return "
+      ██╗   ██╗ ██████╗ ██╗   ██╗    ██████╗  ██████╗ ████████╗██╗  ██╗    ███████╗██╗   ██╗ ██████╗██╗  ██╗██╗
+      ╚██╗ ██╔╝██╔═══██╗██║   ██║    ██╔══██╗██╔═══██╗╚══██╔══╝██║  ██║    ██╔════╝██║   ██║██╔════╝██║ ██╔╝██║
+       ╚████╔╝ ██║   ██║██║   ██║    ██████╔╝██║   ██║   ██║   ███████║    ███████╗██║   ██║██║     █████╔╝ ██║
+        ╚██╔╝  ██║   ██║██║   ██║    ██╔══██╗██║   ██║   ██║   ██╔══██║    ╚════██║██║   ██║██║     ██╔═██╗ ╚═╝
+         ██║   ╚██████╔╝╚██████╔╝    ██████╔╝╚██████╔╝   ██║   ██║  ██║    ███████║╚██████╔╝╚██████╗██║  ██╗██╗
+         ╚═╝    ╚═════╝  ╚═════╝     ╚═════╝  ╚═════╝    ╚═╝   ╚═╝  ╚═╝    ╚══════╝ ╚═════╝  ╚═════╝╚═╝  ╚═╝╚═╝
+                                                                                                              
+         "
     end
+  end
+
+
+  def visual
+    board_visual = "
+    +-----+-----+-----+
+    |  #{board.get_cell(0,0).value}  |  #{board.get_cell(0,1).value}  |  #{board.get_cell(0,2).value}  |
+    +-----+-----+-----+
+    |  #{board.get_cell(1,0).value}  |  #{board.get_cell(1,1).value}  |  #{board.get_cell(1,2).value}  |
+    +-----+-----+-----+
+    |  #{board.get_cell(2,0).value}  |  #{board.get_cell(2,1).value}  |  #{board.get_cell(2,2).value}  |
+    +-----+-----+-----+
+  "  
+  
+  #board_visual = "#{board.get_cell(0,0).value}, #{board.get_cell(0,1).value}, #{board.get_cell(0,2).value}"
   end
 
   def rules_question(rules_answer = gets.chomp.downcase)
@@ -175,9 +174,8 @@ class Game
     rules_question
     puts "Congratulations #{@player_one.name}, you are player one, so you will go first!"
     turn_counter = 1
-    while turn_counter < 10
-      puts Board.new
-      puts Game.visual
+    while turn_counter < 10      
+      puts visual
       puts
       puts ask_move
       errors = 0 
@@ -195,6 +193,7 @@ class Game
         errors += 1
       end
       if board.game_over
+        puts visual
         puts game_over_message
         puts rematch
         Board.new
@@ -204,7 +203,9 @@ class Game
       end
       turn_counter += 1
     end
+    puts visual  
     puts game_over_message
+    puts rematch
   end
   
   def rematch
@@ -213,16 +214,19 @@ class Game
     rematch_answer = gets.chomp.downcase
     if rematch_answer.match(/y/)
       puts
-      print "Excellent choice! #{@player_two}, we'd suggest playing better this time if you want to beat #{@player_one}...."
+      print "Excellent choice! #{@player_two.name}, we'd suggest playing better this time if you want to beat #{@player_one.name}...."
       sleep(1)
       puts
       print "Resetting Game."
-      sleep(0.1)
+      sleep(0.5)
       print "."
-      sleep(0.1)
+      sleep(0.5)
       print "."
-      sleep(0.1)
+      sleep(0.5)
       print "."
+      sleep(1)
+      print("Credit card information succesfully obtained!!")
+      sleep(0.3)
       system "clear"
       Game.new(@players).play_mode
     else
