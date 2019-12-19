@@ -101,10 +101,16 @@ puts "Play again? (Y/N)"
 
 board = Board.new
 
-board.set_cell(0,0,"X")
-board.set_cell(0,1,"0")
-board.set_cell(0,2,"X")
+=begin
+[ , ,x]
+[ ,x, ]
+[x, , ]
 
-x = "0"
+=end
 
-puts board.get_cell(0,0).value
+board.set_cell(0,2,"x")
+board.set_cell(1,1,"x")
+board.set_cell(2,0,"x")
+
+
+puts board.game_over

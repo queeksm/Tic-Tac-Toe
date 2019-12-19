@@ -65,20 +65,31 @@ class Board
     end
   end 
 
+  public
+
   def game_over
-    return :winner if winner?
-    return :draw if draw?
+    return :winner if winner?    
     false
   end
 
-  [x  |  x  |   x]
-
-
-
-  def winning_positions
-    
-      if grid[0, 0] == grid[0, 1] && grid[0, 1] == grid[0, 2]
+  private
+  def winner?
+    for n in 0..2
+      if (get_cell(n, 0).value == get_cell(n, 1).value && get_cell(n, 1).value == get_cell(n, 2).value) && get_cell(n,0).value != ""
+        return true
+      end
+    end
+    for n in 0..2
+      if (get_cell(0,n).value == get_cell(1,n).value && get_cell(1,n).value == get_cell(2,n).value) && get_cell(0,n).value != ""
+        return true
+      end
+    end
+    if ((get_cell(0,0).value == get_cell(1,1).value && get_cell(1,1).value == get_cell(2,2).value) && get_cell(0,0).value != "") || ((get_cell(0,2).value == get_cell(1,1).value && get_cell(1,1).value == get_cell(2,0).value) && get_cell(1,1).value != "")
       return true
+    end
+    false
+  end  
+
 end
 
 
