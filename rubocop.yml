@@ -9,16 +9,33 @@ AllCops:
   DisabledByDefault: true
 
 Metrics/LineLength:
-  Enabled: true
+  Enabled: false
   Max: 300
 Metrics/MethodLength:
+  Enabled: false
   Include: ["app/controllers/*"]
   Max: 2000
 Metrics/AbcSize:
+  Enabled: false
   Include: ["app/controllers/*"]
   Max: 300
 Metrics/ClassLength:
+  Enabled: false
   Max: 1500
+Naming/MethodParameterName:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+Style/For:
+  Enabled: false
+Metrics/BlockNesting:
+  Enabled: false
+Style/WordArray:
+  Enabled: false
+Naming/AccessorMethodName:
+  Enabled: false
 
 
 
