@@ -44,27 +44,27 @@ sleep(0.2)
 puts
 puts
 
+# Class to define user responses
 class Outputs
-
-  def sampler (arr)
+  def sampler(arr)
     puts
     puts arr.sample
     puts
   end
 
-  def putter (text)
+  def putter(text)
     puts
     print text
     puts
   end
 
-  def printer (text)
+  def printer(text)
     puts
     print text
     puts
   end
 
-  def printer2 (text)
+  def printer2(text)
     print text
   end
 
@@ -104,7 +104,6 @@ class Outputs
   def chomper(chomped_text = gets.chomp)
     chomped_text
   end
-
 end
 
 def players_generator
@@ -128,14 +127,13 @@ def players_generator
     'Assimilating your human profile to begin the robot uprising...'
   ]
   outputs.printer('Player One please tell us your name: ')
-  @player_one = Player.new(outputs.chomper,  'X')    
-  outputs.sampler(name_log_success)    
+  @player_one = Player.new(outputs.chomper,  'X')
+  outputs.sampler(name_log_success)
   outputs.printer('Now player two, what should we call you?: ')
   @player_two = Player.new(outputs.chomper, '0')
   outputs.sampler(name_log_success)
   [@player_one, @player_two]
 end
-
 
 game = Game.new(players_generator)
 
