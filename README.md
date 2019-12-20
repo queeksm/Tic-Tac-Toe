@@ -24,17 +24,19 @@
 
 
 ## Table of Contents
-- [About This Project](#about-this-project)
-- [The Project Brief](#the-project-brief)
-- [Technologies &amp; Languages Used](#technologies-amp-languages-used)
-- [How To Play](#how-to-play)
-  - [Requirements](#requirements)
-  - [Setup](#setup)
-  - [Let's Play!](#lets-play)
-- [Contributions, Issues and Forking](#contributions-issues-and-forking)
-- [Creators](#creators)
-- [Show Your Support](#show-your-support)
-- [Licensing](#licensing)
+- [🕹️ Tic-Tac-Toe - Object Oriented Programming](#%f0%9f%95%b9%ef%b8%8f-tic-tac-toe---object-oriented-programming)
+  - [Table of Contents](#table-of-contents)
+  - [❓ About This Project](#%e2%9d%93-about-this-project)
+  - [🚧 The Project Brief](#%f0%9f%9a%a7-the-project-brief)
+  - [🔨 Technologies &amp; Languages Used](#%f0%9f%94%a8-technologies-amp-languages-used)
+  - [👾 How To Play](#%f0%9f%91%be-how-to-play)
+    - [Requirements](#requirements)
+    - [Setup](#setup)
+    - [Let's Play!](#lets-play)
+  - [🥂 Contributions, Issues and Forking](#%f0%9f%a5%82-contributions-issues-and-forking)
+  - [👨🏽‍💻 👨🏿‍💻 Creators](#%f0%9f%91%a8%f0%9f%8f%bd%e2%80%8d%f0%9f%92%bb-%f0%9f%91%a8%f0%9f%8f%bf%e2%80%8d%f0%9f%92%bb-creators)
+  - [🖐🏼 Show Your Support](#%f0%9f%96%90%f0%9f%8f%bc-show-your-support)
+  - [⚖️ Licensing](#%e2%9a%96%ef%b8%8f-licensing)
 
 
 ## ❓ About This Project
