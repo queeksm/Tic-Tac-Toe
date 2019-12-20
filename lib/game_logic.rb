@@ -1,6 +1,24 @@
 # frozen_string_literal: true
 
-# rubocop:disable Naming/MethodParameterName , Metrics/AbcSize , Metrics/CyclomaticComplexity , Metrics/PerceivedComplexity ,Style/For, Style/IfUnlessModifier, Metrics/LineLength ,Metrics/ClassLength ,Style/WordArray
+# rubocop:disable Metrics/ClassLength
+
+# rubocop:disable Metrics/MethodLength
+
+# rubocop:disable Naming/MethodParameterName
+
+# rubocop:disable Metrics/AbcSize
+
+# rubocop:disable Metrics/LineLength
+
+# rubocop:disable Metrics/CyclomaticComplexity
+
+# rubocop:disable Metrics/PerceivedComplexity
+
+# rubocop:disable Style/For
+
+# rubocop:disable Metrics/BlockNesting
+
+# rubocop:disable Style/WordArray
 
 # Class cell for grid
 class Cell
@@ -279,3 +297,23 @@ class Game
     end
   end
 end
+
+# rubocop:enable Metrics/ClassLength
+
+# rubocop:enable Metrics/MethodLength
+
+# rubocop:enable Naming/MethodParameterName
+
+# rubocop:enable Metrics/AbcSize
+
+# rubocop:enable Metrics/LineLength
+
+# rubocop:enable Metrics/CyclomaticComplexity
+
+# rubocop:enable Metrics/PerceivedComplexity
+
+# rubocop:enable Style/For
+
+# rubocop:enable Metrics/BlockNesting
+
+# rubocop:enable Style/WordArray
