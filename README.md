@@ -8,7 +8,7 @@
   </p>
 
   <p align="center">
-    An exercise in OOP using Ruby to create a command line Tic-Tac-Toe game
+    An exercise in OOP using Ruby to create an irreverent command line Tic-Tac-Toe game
     <br />
     <a href="https://github.com/queeksm/Tic-Tac-Toe/tree/master"><strong>Explore This Repository »</strong></a>
     <br />
@@ -48,13 +48,13 @@ This project consisted of creating a Tic-Tac-Toe game to be run from the command
 The project specification and assinment details are part of The Odin Project's Ruby Programming course, which can be found [here.](https://www.theodinproject.com/courses/ruby-programming/lessons/oop)
 
 This project was split up into four key milestones:
-1. **Project** Setup - creating the two main directories: **lib**       for game    logic and **bin* for the executable file
+1. **Project Setup** - creating the two main directories: **lib** for game logic and **bin* for the executable file
 
-2. **User Interface** - Creating the main play flow, user                           interactions and messages and all other 'content' for the game.
+2. **User Interface** - Creating the main play flow, user interactions, randomised messages and all other 'content' for the game.
 
-3. **Game Logic** - Creation of all classes and methods to make the     game        run. This is the main 'engine' of the game.
+3. **Game Logic** - Creation of all classes and methods to make the game run. This is the main 'engine' of the game.
 
-4. **ReadMe** / Further Intructions
+4. **ReadMe**
 
 ## 🔨 Technologies & Languages Used
 
@@ -81,7 +81,7 @@ ___
 
         `ruby ./bin/main`
 
-> NB. In order for the two commands above to successfully be implemented in your terminal, you must navigate to the directory in which the game is located. [HELP IS HERE](https://help.ubuntu.com/community/UsingTheTerminal)
+> NB. In order for the two commands above to successfully be implemented in your terminal, you must navigate to the directory in which the game is located. [MORE INFO](https://help.ubuntu.com/community/UsingTheTerminal)
 
 ___
 
