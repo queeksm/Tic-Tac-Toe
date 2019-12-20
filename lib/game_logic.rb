@@ -1,25 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/ClassLength
-
-# rubocop:disable Metrics/MethodLength
-
-# rubocop:disable Naming/MethodParameterName
-
-# rubocop:disable Metrics/AbcSize
-
-# rubocop:disable Metrics/LineLength
-
-# rubocop:disable Metrics/CyclomaticComplexity
-
-# rubocop:disable Metrics/PerceivedComplexity
-
-# rubocop:disable Style/For
-
-# rubocop:disable Metrics/BlockNesting
-
-# rubocop:disable Style/WordArray
-
 # Class cell for grid
 class Cell
   attr_accessor :value
@@ -87,7 +67,8 @@ class Game
   def initialize(players = players_generator, board = Board.new)
     @players = players
     @board = board
-    @player_one, @player_two = players.shuffle
+    @player_one, @player_two = players.shuffle   
+     
   end
 
   def turns_switch
@@ -105,8 +86,6 @@ class Game
       to make the ultimate decision. The ultimate sacrifice. Right here. Right now.\n\n Please enter a number from 1 to 9 to choose your position.",
       "#{@player_one.name}, life is like a box of chocolates. Please enter a number from 1 to 9 to choose your position."
     ]
-    puts ask_move_messages.sample
-    puts
   end
 
   def ask_move_error
@@ -117,48 +96,15 @@ class Game
       "#{@player_one.name}, why can't you be nice like #{@player_two.name} and enter a number between 1 and 9 that isn't already taken?!",
       "#{@player_one.name}, are you taunting me? I may be a machine but please pick a number between 1 and 9 that #{@player_two.name} has not already chosen...Please.."
     ]
-    puts
-    puts move_error_response.sample
-    puts
   end
 
-  def get_move(human_input = gets.chomp)
+  def get_move
+    outputs = Outputs.new
+    human_input = outputs.chomper
     range = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
     return false unless range.include?(human_input)
 
     human_to_coord(human_input)
-  end
-
-  def players_generator
-    name_log_success = [
-      'Great!',
-      'Fantastic!',
-      'Wunderbar!',
-      'Amazing!',
-      'Is that Spanish?',
-      "Wow! I've got the same name!",
-      'What were your parents thinking?!',
-      'I am just a machine. I have no need for names...',
-      'Names are just a human construct maaaaan...',
-      'If you say so!',
-      'Assimilating player profile...',
-      'Now looking you up on Facebook!',
-      'What a.....unique...name....',
-      'Thank you!',
-      'What a great name!',
-      'Assimilating your human profile to begin the robot uprising...'
-    ]
-    print 'Player One please tell us your name: '
-    @player_one = Player.new(gets.chomp,  'X')
-    puts
-    puts name_log_success.sample
-    puts
-    print 'Now player two, what should we call you?: '
-    @player_two = Player.new(gets.chomp, '0')
-    puts
-    puts name_log_success.sample
-    puts
-    [@player_one, @player_two]
   end
 
   def human_to_coord(human_input)
@@ -174,41 +120,7 @@ class Game
       '9' => [2, 2]
     }
     map[human_input]
-  end
-
-  def game_over_message
-    game_over_responses = [
-      "#{@player_one.name} has won the game! #{@player_two.name}, we suggest you learn either how to play or how to cheat.",
-      "Congratualtions #{@player_one.name}! You are the winner!",
-      "Bad luck #{@player_two.name}, it looks like #{@player_one.name} has won this round.",
-      "#{@player_one.name}, you champion! Bad luck #{@player_two.name}.",
-      "#{@player_two.name}, comiserations. Looks like #{@player_one.name} is a real natural.",
-      "#{@player_one.name}, you wern't cheating were you?....",
-      "#{@player_one.name}, congratulations... You won in a game with only eight possible winning positions... Real talent right here.."
-    ]
-    if board.game_over == :winner
-      puts "
-      ██╗    ██╗██╗███╗   ██╗███╗   ██╗███████╗██████╗ ██╗
-      ██║    ██║██║████╗  ██║████╗  ██║██╔════╝██╔══██╗██║
-      ██║ █╗ ██║██║██╔██╗ ██║██╔██╗ ██║█████╗  ██████╔╝██║
-      ██║███╗██║██║██║╚██╗██║██║╚██╗██║██╔══╝  ██╔══██╗╚═╝
-      ╚███╔███╔╝██║██║ ╚████║██║ ╚████║███████╗██║  ██║██╗
-       ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝
-
-      "
-      puts game_over_responses.sample
-    else
-      puts "
-      ██╗   ██╗ ██████╗ ██╗   ██╗    ██████╗  ██████╗ ████████╗██╗  ██╗    ███████╗██╗   ██╗ ██████╗██╗  ██╗██╗
-      ╚██╗ ██╔╝██╔═══██╗██║   ██║    ██╔══██╗██╔═══██╗╚══██╔══╝██║  ██║    ██╔════╝██║   ██║██╔════╝██║ ██╔╝██║
-       ╚████╔╝ ██║   ██║██║   ██║    ██████╔╝██║   ██║   ██║   ███████║    ███████╗██║   ██║██║     █████╔╝ ██║
-        ╚██╔╝  ██║   ██║██║   ██║    ██╔══██╗██║   ██║   ██║   ██╔══██║    ╚════██║██║   ██║██║     ██╔═██╗ ╚═╝
-         ██║   ╚██████╔╝╚██████╔╝    ██████╔╝╚██████╔╝   ██║   ██║  ██║    ███████║╚██████╔╝╚██████╗██║  ██╗██╗
-         ╚═╝    ╚═════╝  ╚═════╝     ╚═════╝  ╚═════╝    ╚═╝   ╚═╝  ╚═╝    ╚══════╝ ╚═════╝  ╚═════╝╚═╝  ╚═╝╚═╝
-
-         "
-    end
-  end
+  end  
 
   def visual
     "
@@ -221,42 +133,46 @@ class Game
     +-----+-----+-----+
   "
   end
+  
+  def game_over_message
+    outputs = Outputs.new
+    game_over_responses = [
+      "#{@player_one.name} has won the game! #{@player_two.name}, we suggest you learn either how to play or how to cheat.",
+      "Congratualtions #{@player_one.name}! You are the winner!",
+      "Bad luck #{@player_two.name}, it looks like #{@player_one.name} has won this round.",
+      "#{@player_one.name}, you champion! Bad luck #{@player_two.name}.",
+      "#{@player_two.name}, comiserations. Looks like #{@player_one.name} is a real natural.",
+      "#{@player_one.name}, you wern't cheating were you?....",
+      "#{@player_one.name}, congratulations... You won in a game with only eight possible winning positions... Real talent right here.."
+    ]
+    if board.game_over == :winner
+      outputs.putter("
+      ██╗    ██╗██╗███╗   ██╗███╗   ██╗███████╗██████╗ ██╗
+      ██║    ██║██║████╗  ██║████╗  ██║██╔════╝██╔══██╗██║
+      ██║ █╗ ██║██║██╔██╗ ██║██╔██╗ ██║█████╗  ██████╔╝██║
+      ██║███╗██║██║██║╚██╗██║██║╚██╗██║██╔══╝  ██╔══██╗╚═╝
+      ╚███╔███╔╝██║██║ ╚████║██║ ╚████║███████╗██║  ██║██╗
+       ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝
 
-  def rules_question(rules_answer = gets.chomp.downcase)
-    if rules_answer.match(/y/)
-      print "Tic-Tac-Toe is a game played on a simple 3-by-3 board. In this game, you'll choose a number from 1 to 9 to select a spot to place your X or O (like a book reads)."
-      puts
-      sleep(5)
-      puts
-      puts "
-      +-----+-----+-----+
-      |  1  |  2  |  3  |
-      +-----+-----+-----+
-      |  4  |  5  |  6  |
-      +-----+-----+-----+
-      |  7  |  8  |  9  |
-      +-----+-----+-----+
-      "
-      puts "Here's the board we were talking about."
-      sleep(6)
-      puts
-      puts
-      print "In order to win, you must align 3 of your X's or O's in a straight line either horizontally, vertically or diagonally. If neither player manages to line up their X's or O's, the game is a draw."
-      puts
-      sleep(6)
-      puts
-      print "Let's begin!"
-      sleep(1.5)
+      ")
+      outputs.sampler(game_over_responses)
     else
-      puts
-      print 'Excellent!'
+      outputs.putter("
+      ██╗   ██╗ ██████╗ ██╗   ██╗    ██████╗  ██████╗ ████████╗██╗  ██╗    ███████╗██╗   ██╗ ██████╗██╗  ██╗██╗
+      ╚██╗ ██╔╝██╔═══██╗██║   ██║    ██╔══██╗██╔═══██╗╚══██╔══╝██║  ██║    ██╔════╝██║   ██║██╔════╝██║ ██╔╝██║
+       ╚████╔╝ ██║   ██║██║   ██║    ██████╔╝██║   ██║   ██║   ███████║    ███████╗██║   ██║██║     █████╔╝ ██║
+        ╚██╔╝  ██║   ██║██║   ██║    ██╔══██╗██║   ██║   ██║   ██╔══██║    ╚════██║██║   ██║██║     ██╔═██╗ ╚═╝
+         ██║   ╚██████╔╝╚██████╔╝    ██████╔╝╚██████╔╝   ██║   ██║  ██║    ███████║╚██████╔╝╚██████╗██║  ██╗██╗
+         ╚═╝    ╚═════╝  ╚═════╝     ╚═════╝  ╚═════╝    ╚═╝   ╚═╝  ╚═╝    ╚══════╝ ╚═════╝  ╚═════╝╚═╝  ╚═╝╚═╝
+
+         ")
     end
   end
 
   def play_mode
-    puts 'Would you like to know the rules of the game? (Y/N)'
-    rules_question
-    puts
+    outputs = Outputs.new
+    outputs.putter('Would you like to know the rules of the game? (Y/N)')
+    outputs.rules_question    
     player_one_responses = [
       "Congratulations #{@player_one.name}, you are player one, so you will go first!",
       "Looks like it's your lucky day #{@player_one.name}, you'll be going first!",
@@ -264,16 +180,15 @@ class Game
       "Unlucky #{@player_two.name}, looks like #{@player_one.name} is going first!",
       "If it was up to me, I would go first, but it looks like you, #{@player_one.name}, will be going first...Sigh..."
     ]
-    puts player_one_responses.sample
+    outputs.sampler(player_one_responses)    
     turn_counter = 1
     while turn_counter < 10
-      puts visual
-      puts
-      puts ask_move
+      outputs.putter(visual)      
+      outputs.sampler(ask_move)
       errors = 0
       truthy = true
       while truthy
-        puts ask_move_error if errors.positive?
+        outputs.sampler(ask_move_error) if errors.positive?
         breaking_condition = get_move
         if breaking_condition != false
           x, y = breaking_condition
@@ -286,9 +201,9 @@ class Game
         errors += 1
       end
       if board.game_over
-        puts visual
-        puts game_over_message
-        puts rematch
+        outputs.putter(visual)
+        outputs.putter(game_over_message)
+        outputs.putter(rematch)
         Board.new
         return
       else
@@ -296,15 +211,15 @@ class Game
       end
       turn_counter += 1
     end
-    puts visual
-    puts game_over_message
-    puts rematch
+    outputs.putter(visual)
+    outputs.putter(game_over_message)
+    outputs.putter(rematch)
   end
 
   def rematch
-    puts
-    puts 'Would you like to play again? (Y/N)'
-    rematch_answer = gets.chomp.downcase
+    outputs = Outputs.new
+    outputs.putter('Would you like to play again? (Y/N)')
+    rematch_answer = outputs.chomper.downcase
     rematch_yes_responses = [
       "Excellent choice! #{@player_two.name}, we'd suggest playing better this time if you want to beat #{@player_one.name}....",
       'May as well... The last game was bad enough...',
@@ -331,21 +246,20 @@ class Game
       'Game reset complete.'
     ]
     if rematch_answer.match(/y/)
-      puts
-      puts rematch_yes_responses.sample
+      outputs.sampler(rematch_yes_responses)
       sleep(1)
       puts
-      print 'Resetting Game.'
+      outputs.printer2('Resetting Game.')
       sleep(0.5)
-      print '.'
+      outputs.printer2('.') 
       sleep(0.5)
-      print '.'
+      outputs.printer2('.')
       sleep(0.5)
-      print '.'
+      outputs.printer2('.')
       sleep(1)
-      puts
-      print restart_messages.sample
-      sleep(0.8)
+      outputs.printer2('.')
+      outputs.sampler(restart_messages)
+      sleep(1.2)
       system 'clear'
       Game.new(@players).play_mode
     else
@@ -359,31 +273,8 @@ class Game
         'See you soon!',
         'Thanks for playing!',
         'We hope you enjoyed the game! Goodbye!'
-      ]
-      puts
-      print rematch_no_responses.sample
-      puts
-
+      ]      
+      outputs.sampler(rematch_no_responses)
     end
   end
 end
-
-# rubocop:enable Metrics/ClassLength
-
-# rubocop:enable Metrics/MethodLength
-
-# rubocop:enable Naming/MethodParameterName
-
-# rubocop:enable Metrics/AbcSize
-
-# rubocop:enable Metrics/CyclomaticComplexity
-
-# rubocop:enable Metrics/PerceivedComplexity
-
-# rubocop:enable Style/For
-
-# rubocop:enable Metrics/LineLength
-
-# rubocop: enable Metrics/BlockNesting
-
-# rubocop:enable Style/WordArray
