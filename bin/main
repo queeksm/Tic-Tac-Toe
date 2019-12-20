@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
-require '../lib/game_logic.rb'
+require './lib/game_logic.rb'
 
 #Game Startup
 puts
-print "Welcome, to Andres and Rory's Amazing"
+puts "Welcome, to Andres and Rory's Amazing"
 puts
-sleep(2)
+sleep(1)
 puts
 
 print "
@@ -22,9 +22,24 @@ puts "Created by:
         
         Andres Perez [https://github.com/queeksm] and; 
         Rory Hellier [https://github.com/Rhelli]"
+puts "
+                                                                                                                  
+█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗
+╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝
+                                                                                                                                                                                                                                                                                             
+"
 puts
-puts "LOADING..."
-sleep(3)
+print "LOADING."
+sleep(0.5)
+print "."
+sleep(0.8)
+print "."
+sleep(0.8)
+print "."
+sleep(0.8)
+print "."
+sleep(2)
+puts
 puts
 
 Game.new.play_mode

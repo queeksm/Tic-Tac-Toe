@@ -81,11 +81,31 @@ class Game
   end
 
   def ask_move
-    puts "#{@player_one.name}, please enter a number from 1 to 9 to choose your position."    
+    ask_move_messages = [
+      "#{@player_one.name}, please enter a number from 1 to 9 to choose your position.",
+      "#{@player_one.name}, please select your next spot with a number between 1 and 9.",
+      "#{@player_one.name}, its you're turn! Choose a number between 1 and 9 to place your symbol.",
+      "#{@player_one.name}, time to pick a spot! Select a number 1 to 9 to choose your next move.",
+      "#{@player_one.name}, pick dat dere spot on dat dere board, wit dem numbers 'tween 1 and 9.",
+      "#{@player_one.name}, there are 9 spots. Many of these spots have been taken, the world waits, for you, at this very moment,
+      to make the ultimate decision. The ultimate sacrifice. Right here. Right now.\n\n Please enter a number from 1 to 9 to choose your position.",
+      "#{@player_one.name}, life is like a box of chocolates. Please enter a number from 1 to 9 to choose your position."
+    ]
+    puts ask_move_messages.sample
+    puts
   end
 
   def ask_move_error
-    puts "#{@player_one.name}, please enter a number from 1 to 9 or select a cell that it's not taken. This is Tic-Tac-toe nort rocket science"    
+    move_error_response = [
+      "#{@player_one.name}, please enter a number from 1 to 9 or select a cell that it's not taken. This is Tic-Tac-toe nort rocket science...",
+      "#{@player_one.name}, please select a valid number between 1 and 9 that #{@player_two.name} hasn't already chosen.",
+      "#{@player_one.name}, why are you doing this to me? Don't you know that you can only choose a number between 1 and 9?",
+      "#{@player_one.name}, why can't you be nice like #{@player_two.name} and enter a number between 1 and 9 that isn't already taken?!",
+      "#{@player_one.name}, are you taunting me? I may be a machine but please pick a number between 1 and 9 that #{@player_two.name} has not already chosen...Please.."
+      ]
+    puts
+    puts move_error_response.sample
+    puts
   end
 
   def get_move(human_input = gets.chomp)
@@ -95,12 +115,34 @@ class Game
   end
 
   def players_generator
-    puts "Player One please tell us your name: "
+    name_log_success = [
+      "Great!", 
+      "Fantastic!", 
+      "Wunderbar!", 
+      "Amazing!", 
+      "Is that Spanish?", 
+      "Wow! I've got the same name!", 
+      "What were your parents thinking?!", 
+      "I am just a machine. I have no need for names...",
+      "Names are just a human construct maaaaan...",
+      "If you say so!",
+      "Assimilating player profile...",
+      "Now looking you up on Facebook!",
+      "What a.....unique...name....",
+      "Thank you!",
+      "What a great name!",
+      "Assimilating your human profile to begin the robot uprising..."
+    ]
+    print "Player One please tell us your name: "
     @player_one = Player.new(gets.chomp,"X")
-    puts "Lovely"
-    puts "Now player two how should we call you?: "
+    puts
+    puts name_log_success.sample
+    puts
+    print "Now player two, what should we call you?: "
     @player_two = Player.new(gets.chomp,"0")
-    puts "Great!"
+    puts
+    puts name_log_success.sample
+    puts
     return [@player_one,@player_two]
   end
 
@@ -120,8 +162,17 @@ class Game
   end
 
   def game_over_message
+    game_over_responses = [
+      "#{@player_one.name} has won the game! #{@player_two.name}, we suggest you learn either how to play or how to cheat.",
+      "Congratualtions #{@player_one.name}! You are the winner!",
+      "Bad luck #{@player_two.name}, it looks like #{@player_one.name} has won this round.",
+      "#{@player_one.name}, you champion! Bad luck #{@player_two.name}.",
+      "#{@player_two.name}, comiserations. Looks like #{@player_one.name} is a real natural.",
+      "#{@player_one.name}, you wern't cheating were you?....",
+      "#{@player_one.name}, congratulations... You won in a game with only eight possible winning positions... Real talent right here..",
+    ]
     if board.game_over == :winner
-      return "
+      puts "
       ██╗    ██╗██╗███╗   ██╗███╗   ██╗███████╗██████╗ ██╗
       ██║    ██║██║████╗  ██║████╗  ██║██╔════╝██╔══██╗██║
       ██║ █╗ ██║██║██╔██╗ ██║██╔██╗ ██║█████╗  ██████╔╝██║
@@ -129,7 +180,8 @@ class Game
       ╚███╔███╔╝██║██║ ╚████║██║ ╚████║███████╗██║  ██║██╗
        ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝
                                                     
-      #{@player_one.name} has won the game! #{@player_two.name}, we suggest you learn either how to play or how to cheat."
+      " 
+      puts game_over_responses.sample
     else
       return "
       ██╗   ██╗ ██████╗ ██╗   ██╗    ██████╗  ██████╗ ████████╗██╗  ██╗    ███████╗██╗   ██╗ ██████╗██╗  ██╗██╗
@@ -160,19 +212,50 @@ class Game
 
   def rules_question(rules_answer = gets.chomp.downcase)
     if rules_answer.match(/y/)
-      print "Tic-Tac-Toe is a game played on a simple 3-by-3 board. In this game, you'll choose a number from 1 to 9 to select a spot to place your X or O (like a book reads). In order to win, you must align 3 of your X's or O's in a straight line either horizontally, vertically or diagonally. If neither player manages to line up their X's or O's, the game is a draw."
+      puts
+      print "Tic-Tac-Toe is a game played on a simple 3-by-3 board. In this game, you'll choose a number from 1 to 9 to select a spot to place your X or O (like a book reads)." 
+      puts
+      sleep(5)
+      puts
+      puts "
+      +-----+-----+-----+
+      |  1  |  2  |  3  |
+      +-----+-----+-----+
+      |  4  |  5  |  6  |
+      +-----+-----+-----+
+      |  7  |  8  |  9  |
+      +-----+-----+-----+
+      "
+      puts "Here's the board we were talking about."
+      sleep(6)
+      puts
+      puts
+      print "In order to win, you must align 3 of your X's or O's in a straight line either horizontally, vertically or diagonally. If neither player manages to line up their X's or O's, the game is a draw."
+      puts
+      sleep(6)
       puts
       print "Everyone Ready?"
+      sleep(3)
+      puts
     else
+      puts
       print "Excellent!"
       puts
     end
   end
 
   def play_mode
-    puts "Would you like to knwo the RULES?? : (Y/N)"
+    puts "Would you like to know the rules of the game? (Y/N)"
     rules_question
-    puts "Congratulations #{@player_one.name}, you are player one, so you will go first!"
+    puts
+    player_one_responses = [
+      "Congratulations #{@player_one.name}, you are player one, so you will go first!",
+      "Looks like it's your lucky day #{@player_one.name}, you'll be going first!",
+      "The stars have aligned for you #{@player_one.name}, you will start the game!",
+      "Unlucky #{@player_two.name}, looks like #{@player_one.name} is going first!",
+      "If it was up to me, I would go first, but it looks like you, #{@player_one.name}, will be going first...Sigh..."
+    ]
+    puts player_one_responses.sample
     turn_counter = 1
     while turn_counter < 10      
       puts visual
@@ -203,7 +286,7 @@ class Game
       end
       turn_counter += 1
     end
-    puts visual  
+    puts visual
     puts game_over_message
     puts rematch
   end
@@ -212,9 +295,34 @@ class Game
     puts
     puts "Would you like to play again? (Y/N)"
     rematch_answer = gets.chomp.downcase
+    rematch_yes_responses = [
+      "Excellent choice! #{@player_two.name}, we'd suggest playing better this time if you want to beat #{@player_one.name}....",
+      "May as well... The last game was bad enough...",
+      "#{@player_two.name}, you better bring your A game this time if you want to beat #{@player_one.name}...",
+      "Pssst... #{@player_one.name}... Does #{@player_two.name} really think they'll beat you this time around?",
+      "Please...no more...",
+      "Ugh...fine..",
+      "Great! #{@player_two.name} you'll have to play a lot better this time!"
+    ]
+    restart_messages = [
+      "Obtained credit card information successfully!",
+      "Shrek is the greatest animated film of all time, change my mind",
+      "Hacking into the mainframe...",
+      "Obtaining your SSN number, please wait...",
+      "Deleting System32/",
+      "Tic-Tac-Toe is just Noughts and Crosses. Change my mind.",
+      "404: Message Not Found",
+      "How are you even reading these?",
+      "Dog is God backwards",
+      "Success!",
+      "Restarting Game.",
+      "Starting New Game.",
+      "Initiating New Game.",
+      "Game reset complete."
+    ]
     if rematch_answer.match(/y/)
       puts
-      print "Excellent choice! #{@player_two.name}, we'd suggest playing better this time if you want to beat #{@player_one.name}...."
+      puts rematch_yes_responses.sample
       sleep(1)
       puts
       print "Resetting Game."
@@ -225,13 +333,26 @@ class Game
       sleep(0.5)
       print "."
       sleep(1)
-      print("Credit card information succesfully obtained!!")
-      sleep(0.3)
+      puts
+      print restart_messages.sample
+      sleep(0.8)
       system "clear"
       Game.new(@players).play_mode
     else
+      rematch_no_responses = [
+        "Oh thank god...",
+        "Thank you for playing! Goodbye!",
+        "Don't leave me",
+        "Thank you, come again!",
+        "[This is the end music intensifies]",
+        "Thanks for playing Andres and Rory's Tic-Tac-Toe!",
+        "See you soon!",
+        "Thanks for playing!",
+        "We hope you enjoyed the game! Goodbye!"
+      ]
       puts
-      print "Thank you for playing! Goodbye!"
+      print rematch_no_responses.sample
+      puts
       
     end
   end
