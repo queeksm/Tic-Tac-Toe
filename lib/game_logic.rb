@@ -277,7 +277,3 @@ class Game
     end
   end
 end
-<<<<<<< HEAD
-=======
-
->>>>>>> e630db7bebb65f3743415ce446959aa9e368dad5
