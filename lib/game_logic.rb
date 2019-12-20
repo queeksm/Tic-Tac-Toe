@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable Naming/MethodParameterName , Metrics/AbcSize , Metrics/CyclomaticComplexity , Metrics/PerceivedComplexity ,Style/For, Style/IfUnlessModifier, Metrics/LineLength ,Metrics/ClassLength ,Style/WordArray
+
 # Class cell for grid
 class Cell
   attr_accessor :value
@@ -119,7 +121,7 @@ class Game
       '9' => [2, 2]
     }
     map[human_input]
-  end  
+  end
 
   def visual
     "
@@ -132,7 +134,7 @@ class Game
     +-----+-----+-----+
   "
   end
-  
+
   def game_over_message
     outputs = Outputs.new
     game_over_responses = [
@@ -171,7 +173,7 @@ class Game
   def play_mode
     outputs = Outputs.new
     outputs.putter('Would you like to know the rules of the game? (Y/N)')
-    outputs.rules_question    
+    outputs.rules_question
     player_one_responses = [
       "Congratulations #{@player_one.name}, you are player one, so you will go first!",
       "Looks like it's your lucky day #{@player_one.name}, you'll be going first!",
@@ -179,10 +181,10 @@ class Game
       "Unlucky #{@player_two.name}, looks like #{@player_one.name} is going first!",
       "If it was up to me, I would go first, but it looks like you, #{@player_one.name}, will be going first...Sigh..."
     ]
-    outputs.sampler(player_one_responses)    
+    outputs.sampler(player_one_responses)
     turn_counter = 1
     while turn_counter < 10
-      outputs.putter(visual)      
+      outputs.putter(visual) 
       outputs.sampler(ask_move)
       errors = 0
       truthy = true
@@ -250,7 +252,7 @@ class Game
       puts
       outputs.printer2('Resetting Game.')
       sleep(0.5)
-      outputs.printer2('.') 
+      outputs.printer2('.')
       sleep(0.5)
       outputs.printer2('.')
       sleep(0.5)
@@ -272,7 +274,7 @@ class Game
         'See you soon!',
         'Thanks for playing!',
         'We hope you enjoyed the game! Goodbye!'
-      ]      
+      ]
       outputs.sampler(rematch_no_responses)
     end
   end
