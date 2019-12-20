@@ -8,7 +8,7 @@
   </p>
 
   <p align="center">
-    An exercise in OOP using Ruby to create an intercative and irreverent command line Tic-Tac-Toe game
+    An exercise in OOP using Ruby to create an interactive and irreverent command line Tic-Tac-Toe game
     <br />
     <a href="https://github.com/queeksm/Tic-Tac-Toe/tree/master"><strong>Explore This Repository »</strong></a>
     <br />
