@@ -1,13 +1,47 @@
-<center>
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
 
-# 🕹️ OOP (Object Oriented Programming) - Tic-Tac-Toe
 
-</center>
-
+<br />
 <p align="center">
-<img src="splash-screen.png" alt="Splash Screen">
+  <img src="splash-screen.png" alt="Splash Screen" width="718" height="294">
+
+  <h1 align="center">🕹️ Tic-Tac-Toe</h1>
+
+  <p align="center">
+    An exercise in Object Oriented Programming using Ruby
+    <br />
+    <a href="https://github.com/queeksm/Tic-Tac-Toe/tree/master"><strong>Explore This Repository »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/queeksm/Tic-Tac-Toe/archive/master.zip">Download The Game</a>
+    ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report A Bug</a>
+    ·
+    <a href="https://github.com/queeksm/Tic-Tac-Toe/issues">Request A Feature</a>
+  </p>
 </p>
 
+
+
+## Table of Contents
+- [About This Project](#about-this-project)
+- [The Project Brief](#the-project-brief)
+- [Technologies &amp; Languages Used](#technologies-amp-languages-used)
+- [How To Play](#how-to-play)
+  - [Requirements](#requirements)
+  - [Setup](#setup)
+  - [Let's Play!](#lets-play)
+- [Contributions, Issues and Forking](#contributions-issues-and-forking)
+- [Creators](#creators)
+- [Show Your Support](#show-your-support)
+- [Licensing](#licensing)
+
+
+## ❓ About This Project
 
 This project is part of a series of projects to be completed by students of [Microverse](https://www.microverse.org/ 'The Global School for Remote Software Developers!').
 
@@ -24,7 +58,7 @@ This project was split up into four key milestones:
 
 3. **Game Logic** - Creation of all classes and methods to make the     game        run. This is the main 'engine' of the game.
 
-4. ReadMe / Further Intructions
+4. **ReadMe** / Further Intructions
 
 ## 🔨 Technologies & Languages Used
 
@@ -36,23 +70,26 @@ This project was split up into four key milestones:
 ### Requirements
 You must have Ruby downloaded and available on your computer. If you do not, you can download it [here.](https://www.ruby-lang.org/en/downloads/)
 
+___
+
 ### Setup
 1. Download this repo and place it somewhere accessible and convenient.
 
-3. The file you will use to run the game is the **main** file, located in the **bin** folder.
-    - If you cannot run the file out of the box, give the **main** file execute permissions      using the following command in terminal:
+3. The file you will use to run the game is the **main** file, located in the       **bin** folder. If you cannot run the file out of the box, give the **main**     file execute permissions using the following command in terminal:
 
-      `chmod +x bin/main`
+        `chmod +x bin/main`
 
-      This will allow you to double click the file and run it easily.
+    This will allow you to double click the file and run it easily.
 
 4. You will then be able to open the game by entering the following command into your terminal:
 
         `ruby ./bin/main`
 
-> NB. In order for the two commands to successfully be implemented in your terminal, you must          navigate to the directory in which the game is located. [HELP IS HERE](https://help.ubuntu.com/community/UsingTheTerminal)
+> NB. In order for the two commands above to successfully be implemented in your terminal, you must navigate to the directory in which the game is located. [HELP IS HERE](https://help.ubuntu.com/community/UsingTheTerminal)
 
-### Lets Play!
+___
+
+### Let's Play!
 Just incase you're not too familiar with the game of Tic-Tac-Toe (or Noughts and Crosses for that matter), it goes a little something like this:
 
 - The game is played on a 3x3 board
@@ -63,9 +100,11 @@ Just incase you're not too familiar with the game of Tic-Tac-Toe (or Noughts and
 
 Instructions are also optionally available in-game in case you forget!
 
-## 🥂 Contributing
+## 🥂 Contributions, Issues and Forking
 
-Contributions, issues and feature requests are more than welcome!<br />If you have any problems running or setting up the game, please do check out the [issues page.](https://github.com/queeksm/Enumerable-methods/issues)
+Contributions, issues and feature requests are more than welcome! 
+
+If you have any problems running or setting up the game, please do check out the [issues page.](https://github.com/queeksm/Enumerable-methods/issues)
 
 If you want to make your own changes, modifications or improvements, go ahead and Fork it!
 1. Fork it (https://github.com/queeksm/Tic-Tac-Toe/fork)
@@ -87,3 +126,17 @@ Give a ⭐️ if you like this project!
 ## ⚖️ Licensing
 
 This project is [MIT](https://github.com/queeksm/Tic-Tac-Toe/LICENSE.txt) licensed.
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=flat-square
+[contributors-url]: https://github.com/queeksm/Tic-Tac-Toe/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=flat-square
+[forks-url]: https://github.com/queeksm/Tic-Tac-Toe/network/members
+[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=flat-square
+[stars-url]: https://github.com/queeksm/Tic-Tac-Toe/stargazers
+[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=flat-square
+[issues-url]: https://github.com/queeksm/Tic-Tac-Toe/issues
+[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=flat-square
+[license-url]: https://github.com/queeksm/Tic-Tac-Toe/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
