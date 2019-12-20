@@ -67,8 +67,7 @@ class Game
   def initialize(players = players_generator, board = Board.new)
     @players = players
     @board = board
-    @player_one, @player_two = players.shuffle   
-     
+    @player_one, @player_two = players.shuffle
   end
 
   def turns_switch
@@ -76,7 +75,7 @@ class Game
   end
 
   def ask_move
-    ask_move_messages = [
+    [
       "#{@player_one.name}, please enter a number from 1 to 9 to choose your position.",
       "#{@player_one.name}, please select your next spot with a number between 1 and 9.",
       "#{@player_one.name}, its you're turn! Choose a number between 1 and 9 to place your symbol.",
@@ -89,7 +88,7 @@ class Game
   end
 
   def ask_move_error
-    move_error_response = [
+    [
       "#{@player_one.name}, please enter a number from 1 to 9 or select a cell that it's not taken. This is Tic-Tac-toe nort rocket science...",
       "#{@player_one.name}, please select a valid number between 1 and 9 that #{@player_two.name} hasn't already chosen.",
       "#{@player_one.name}, why are you doing this to me? Don't you know that you can only choose a number between 1 and 9?",

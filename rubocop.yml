@@ -6,9 +6,11 @@ AllCops:
     - "Guardfile"
     - "Rakefile"
   DisplayCopNames: true
+  DisabledByDefault: true
 
 Metrics/LineLength:
-  Enabled: false
+  Enabled: true
+  Max: 300
 Metrics/MethodLength:
   Include: ["app/controllers/*"]
   Max: 2000
@@ -17,21 +19,7 @@ Metrics/AbcSize:
   Max: 300
 Metrics/ClassLength:
   Max: 1500
-Metrics/BlockLength:
-  Enabled: false
-  ExcludedMethods: ['describe']
-Metrics/BlockNesting:
-  Enabled: false
-Metrics/CyclomaticComplexity:
-  Enabled: false
-Metrics/PerceivedComplexity:
-  Enabled: false
-Naming/MethodParameterName:
-  Enabled: false
-Style/For:
-  Enabled: false
-Style/WordArray:
-  Enabled: false
+
 
 
 Style/Documentation:
