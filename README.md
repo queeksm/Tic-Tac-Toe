@@ -1,6 +1,6 @@
 <center>
 
-# 🕹️ Ruby - OOP (Object Oriented Programming) - Tic-Tac-Toe
+# 🕹️ OOP (Object Oriented Programming) - Tic-Tac-Toe
 
 </center>
 
@@ -18,29 +18,11 @@ This project consisted of creating a Tic-Tac-Toe game to be run from the command
 The project specification and assinment details are part of The Odin Project's Ruby Programming course, which can be found [here.](https://www.theodinproject.com/courses/ruby-programming/lessons/oop)
 
 This project was split up into four key milestones:
-1. Project Setup 
-    - Creation of the two main directories: 
-         - **lib** for game logic;
-         - **bin* for the executable file
+1. **Project** Setup - creating the two main directories: **lib**       for game    logic and **bin* for the executable file
 
-2. User Interface
-    - Planning and creation of the main flow of the game through which the user would   interact with the game.
-    - Writing all the games content
+2. **User Interface** - Creating the main play flow, user                           interactions and messages and all other 'content' for the game.
 
-3. Game Logic
-    - Creating all classes and methods to give the game the ability to be played!
-    - A 'Player' class allowing player creation
-    - A 'Board' class to: 
-      - Show a visual representation of the board to the player
-      - Store players moves and fetch them
-      - Define whether the game has ended in a win or a draw
-    - A 'Game' class to:
-      - Provide prompt users for their move and alternate on each turn
-      - Randomise starting player on game start
-      - Translate a numeric input of 1 to 9 to coordinates
-      - Optional instructions display on start up
-      - Rematch option at the end of the game
-      - Randomised responses for the user for a different experience each time
+3. **Game Logic** - Creation of all classes and methods to make the     game        run. This is the main 'engine' of the game.
 
 4. ReadMe / Further Intructions
 
@@ -66,9 +48,9 @@ You must have Ruby downloaded and available on your computer. If you do not, you
 
 4. You will then be able to open the game by entering the following command into your terminal:
 
-      `ruby ./bin/main`
+        `ruby ./bin/main`
 
-> NB. In order for the two commands to successfully be implemented in your terminal, you must          navigate to the directory in which the game is located. [HELP](https://help.ubuntu.com/community/UsingTheTerminal)
+> NB. In order for the two commands to successfully be implemented in your terminal, you must          navigate to the directory in which the game is located. [HELP IS HERE](https://help.ubuntu.com/community/UsingTheTerminal)
 
 ### Lets Play!
 Just incase you're not too familiar with the game of Tic-Tac-Toe (or Noughts and Crosses for that matter), it goes a little something like this:
