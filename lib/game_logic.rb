@@ -20,6 +20,8 @@
 
 # rubocop:disable Style/WordArray
 
+# rubocop:disable Naming/AccessorMethodName
+
 # Class cell for grid
 class Cell
   attr_accessor :value
@@ -202,7 +204,7 @@ class Game
     outputs.sampler(player_one_responses)
     turn_counter = 1
     while turn_counter < 10
-      outputs.putter(visual) 
+      outputs.putter(visual)
       outputs.sampler(ask_move)
       errors = 0
       truthy = true
@@ -317,3 +319,5 @@ end
 # rubocop:enable Metrics/BlockNesting
 
 # rubocop:enable Style/WordArray
+
+# rubocop:enable Naming/AccessorMethodName
