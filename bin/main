@@ -1,45 +1,52 @@
 #!/usr/bin/env ruby
+
+# frozen_string_literal: true
+
 require './lib/game_logic.rb'
 
-#Game Startup
+# Game Startup
 puts
 puts "Welcome, to Andres and Rory's Amazing"
 puts
 sleep(1)
 puts
 
+# rubocop:disable Metrics/LineLength
+
 print "
   ████████╗██╗ ██████╗              ████████╗ █████╗  ██████╗              ████████╗ ██████╗ ███████╗
   ╚══██╔══╝██║██╔════╝              ╚══██╔══╝██╔══██╗██╔════╝              ╚══██╔══╝██╔═══██╗██╔════╝
-     ██║   ██║██║         █████╗       ██║   ███████║██║         █████╗       ██║   ██║   ██║█████╗  
-     ██║   ██║██║         ╚════╝       ██║   ██╔══██║██║         ╚════╝       ██║   ██║   ██║██╔══╝  
+     ██║   ██║██║         █████╗       ██║   ███████║██║         █████╗       ██║   ██║   ██║█████╗
+     ██║   ██║██║         ╚════╝       ██║   ██╔══██║██║         ╚════╝       ██║   ██║   ██║██╔══╝
      ██║   ██║╚██████╗                 ██║   ██║  ██║╚██████╗                 ██║   ╚██████╔╝███████╗
      ╚═╝   ╚═╝ ╚═════╝                 ╚═╝   ╚═╝  ╚═╝ ╚═════╝                 ╚═╝    ╚═════╝ ╚══════╝
-                                                                                                     
+
 "
 puts
 puts "Created by:
-        
-        Andres Perez [https://github.com/queeksm] and; 
+
+        Andres Perez [https://github.com/queeksm] and;
         Rory Hellier [https://github.com/Rhelli]"
 puts "
-                                                                                                                  
+
 █████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗
 ╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝
-                                                                                                                                                                                                                                                                                             
+
 "
 puts
-print "LOADING."
+print 'LOADING.'
 sleep(0.5)
-print "."
+print '.'
 sleep(0.8)
-print "."
+print '.'
 sleep(0.8)
-print "."
+print '.'
 sleep(0.8)
-print "."
+print '.'
 sleep(2)
 puts
 puts
 
 Game.new.play_mode
+
+# rubocop:enable Metrics/LineLength
