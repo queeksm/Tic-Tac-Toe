@@ -1,27 +1,23 @@
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
 
-
-<br />
 <p align="center">
-  <img src="splash-screen.png" alt="Splash Screen" width="718" height="294">
-
-  <h1 align="center">🕹️ Tic-Tac-Toe</h1>
+  <img src="splash-screen.png" alt="Splash Screen" width="718" height="394">
 
   <p align="center">
-    An exercise in Object Oriented Programming using Ruby
+  
+  # 🕹️ Tic-Tac-Toe - Object Oriented Programming
+  </p>
+
+  <p align="center">
+    An exercise in OOP using Ruby to create a command line Tic-Tac-Toe game
     <br />
     <a href="https://github.com/queeksm/Tic-Tac-Toe/tree/master"><strong>Explore This Repository »</strong></a>
     <br />
     <br />
     <a href="https://github.com/queeksm/Tic-Tac-Toe/archive/master.zip">Download The Game</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report A Bug</a>
+    <a href="https://github.com/queeksm/Tic-Tac-Toe/issues">Report A Bug</a>
     ·
-    <a href="https://github.com/queeksm/Tic-Tac-Toe/issues">Request A Feature</a>
+    <a href="https://github.com/queeksm/Tic-Tac-Toe/fork">Fork It</a>
   </p>
 </p>
 
@@ -104,7 +100,7 @@ Instructions are also optionally available in-game in case you forget!
 
 Contributions, issues and feature requests are more than welcome! 
 
-If you have any problems running or setting up the game, please do check out the [issues page.](https://github.com/queeksm/Enumerable-methods/issues)
+If you have any problems running or setting up the game, please do check out the [issues page.](https://github.com/queeksm/Tic-Tac-Toe/issues)
 
 If you want to make your own changes, modifications or improvements, go ahead and Fork it!
 1. Fork it (https://github.com/queeksm/Tic-Tac-Toe/fork)
@@ -126,17 +122,3 @@ Give a ⭐️ if you like this project!
 ## ⚖️ Licensing
 
 This project is [MIT](https://github.com/queeksm/Tic-Tac-Toe/LICENSE.txt) licensed.
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=flat-square
-[contributors-url]: https://github.com/queeksm/Tic-Tac-Toe/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=flat-square
-[forks-url]: https://github.com/queeksm/Tic-Tac-Toe/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=flat-square
-[stars-url]: https://github.com/queeksm/Tic-Tac-Toe/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=flat-square
-[issues-url]: https://github.com/queeksm/Tic-Tac-Toe/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=flat-square
-[license-url]: https://github.com/queeksm/Tic-Tac-Toe/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
