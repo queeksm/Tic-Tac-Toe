@@ -24,17 +24,17 @@
 
 
 ## Table of Contents
-  - [About This Project](#%e2%9d%93-about-this-project)
-  - [The Project Brief](#%f0%9f%9a%a7-the-project-brief)
-  - [Technologies &amp; Languages Used](#%f0%9f%94%a8-technologies-amp-languages-used)
-  - [How To Play](#%f0%9f%91%be-how-to-play)
+  - [About This Project](https://github.com/queeksm/Tic-Tac-Toe/tree/game_instructions#-about-this-project)
+  - [The Project Brief](https://github.com/queeksm/Tic-Tac-Toe/tree/game_instructions#-the-project-brief)
+  - [Technologies &amp; Languages Used](https://github.com/queeksm/Tic-Tac-Toe/tree/game_instructions#-technologies--languages-used)
+  - [How To Play](https://github.com/queeksm/Tic-Tac-Toe/tree/game_instructions#-how-to-play)
     - [Requirements](#requirements)
     - [Setup](#setup)
     - [Let's Play!](#lets-play)
-  - [Contributions, Issues and Forking](#%f0%9f%a5%82-contributions-issues-and-forking)
-  - [Creators](#%f0%9f%91%a8%f0%9f%8f%bd%e2%80%8d%f0%9f%92%bb-%f0%9f%91%a8%f0%9f%8f%bf%e2%80%8d%f0%9f%92%bb-creators)
-  - [Show Your Support](#%f0%9f%96%90%f0%9f%8f%bc-show-your-support)
-  - [Licensing](#%e2%9a%96%ef%b8%8f-licensing)
+  - [Contributions, Issues and Forking](https://github.com/queeksm/Tic-Tac-Toe/tree/game_instructions#-contributions-issues-and-forking)
+  - [Creators](https://github.com/queeksm/Tic-Tac-Toe/tree/game_instructions#--creators)
+  - [Show Your Support](https://github.com/queeksm/Tic-Tac-Toe/tree/game_instructions#-show-your-support)
+  - [Licensing](https://github.com/queeksm/Tic-Tac-Toe/tree/game_instructions#%EF%B8%8F-licensing)
 
 
 ## ❓ About This Project
