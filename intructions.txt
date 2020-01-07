@@ -1,0 +1,92 @@
+https://codequizzes.wordpress.com/2013/10/25/creating-a-tic-tac-toe-game-with-ruby/
+
+Cell classes
+	• Need to be module based
+	• 9 cells
+		○ Each cell has 3 states - nil, "x" or "o"
+	• Cells are intialized empty
+	• They can also be initialized with an value (nil, x or o)
+	• After a cell has been initialized, it cannot be changed. Only read.
+
+
+Player Class
+	• Keeps track of the player name and if they are 'X' or 'O'
+	• Player should be initialized with a hash containing :name and :color/sign symbols.
+	• An exception is raised if either of these is missing
+
+
+Board Class
+  How it works
+  	• Board class manages the tic-tac-toe grid by writing, reading and checking if the game  has ended (win/lose for either player)
+  	• The grid will work best as an array with 3 lines of 3 nested arrays. Eg.
+  		
+      example_array = [
+  		  ["X", "O", "X"],
+  		  ["O", "O", " "],
+  		  ["X", "O", "1"]
+  		]
+  	
+    • This array also provides a coordinates system (y, x) - nb. Not (x, y) with the upper left corner being the origin (0, 0).
+  	• To access elements using the coordinates system, for example, the '1' in the array, you would use "example_array[2, 2]".
+
+  How to Build It
+  	• Create a board class that intializes with an input hash that has a :grid key. Eg.
+  		○ @grid = input.fetch(:grid)
+
+  	• When the board is instantiated, it needs to have an empty or 'nil' value - so this either means instantiate the hash with a value we like that looks empty/represents empty or to a default value
+
+  	• The board default (the empty grid that first shows up) should be a private method, only called by instances of the board class
+
+  	• Add an attr_reader method for the grid instance variable
+
+  	• Message senders should be able to ask a board object for the value at (x,y) coordinates (message senders don’t need to worry about the (y, x) order previously stated.
+
+  	• Define a get_value(x_y) method to read a cells contents
+
+  	• Add a method to update the value of a cell object called set_cell() method with an instance of the cell class (because cell objects should respond to "what value" messages
+
+  	• The last responsibility of the board class is to assess the grid and return who a :winner if there is a winner, a :draw if the game has ended in a tie and "false" if the game is still being played
+  		○ This method can be called game_over
+  		○ The game_over method will rely on 'winner?' and 'draw?' 
+  		○ These methods are also private
+  		○ 'draw?'  returns true if all spaces on the grid are not empty and are false otherwise
+  		○ NB it is possible for there to be a winner and all the space on the board to be filled, so 'winner?' will have to be called before the 'draw?' in the game_over method.
+
+  		○ ACTIONS FOR WINNER?
+  			§ Set this Array checker for the game_over class outside the tictactoe module. It will make the logic for checking who is the winner? And if there is a draw much simpler.
+  			§ Define a method that returns true if all elements of an array are empty and false otherwise
+  			§ Define a method that returns true if all elements of an array are the same and false otherwise
+  			§ Define a method that returns true if none of the elements of the array are empty and false otherwise (none_empty?)
+
+  		○ Draw? Should return true if none of the Array elements are empty (just convert the all the cells to a single array of values and use the none_empty? Method to check for a draw)
+
+  		○ Defining the winner? Is more complex
+  			§ All possible winning positions need to be organized in an array of arrays (all combinations in one array)
+  			§ Each possible winning combination needs to be analyzed to see if all the values are all the non-blank and the same
+  				□ There are 8 winning combinations in tictactoe - 3 columns, 3 rows and 2 diagonals.
+  			§ Define a winning_positions method that returns an array of the 8 winning positions
+  			§ Use the '.transpose' method to collect the columns
+  			§ Winning positions are private methods
+  			§ Define a winner? Method that iterates iover the winning_positions and returns true if all values in a winning position are the same and are not empty
+  				□ This method iterates over all the winning_positions, skipping arrays with empty values and returning true if they (the arrays values) are all true
+  				□ If this iteration completes and nothing is returned, 'false' is returned by default and there is no winner
+	
+Game Class
+The purpose of the game class is to manage the moves and turns of the players
+	• Create a game class that is initialized with an array of two players and a board and randomly sets the @@other_player instance variables (.shuffle)
+	• The @current_player and @other_player instance variables should be set randomly and then alternate every turn
+	• Optionaly, create a 'switch_players' method that swaps the values of the players
+
+The game class is also resposible for creating a message to be printed to prompt the user to make a move. This move (on the grid) can be a number from 1 to 9
+	• Define a ask_move method to ask the player to enter a number between 1 and 9
+	• Define a get_move method that takes a human_move input of 1 to 9 and converts it to (x, y) coordinates
+	• Define a game_over_message to tell the user the game has either ended in a tie incase of a tie or that there is a winner incase of winner.
+  • Define a 'play' method that asks users for moves until the game is over.
+
++---+---+---+
+|   |   |   |
++---+---+---+
+|   |   |   |
++---+---+---+
+|   |   |   |
++---+---+---+
