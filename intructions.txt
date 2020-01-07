@@ -82,3 +82,11 @@ The game class is also resposible for creating a message to be printed to prompt
 	• Define a get_move method that takes a human_move input of 1 to 9 and converts it to (x, y) coordinates
 	• Define a game_over_message to tell the user the game has either ended in a tie incase of a tie or that there is a winner incase of winner.
   • Define a 'play' method that asks users for moves until the game is over.
+
++---+---+---+
+|   |   |   |
++---+---+---+
+|   |   |   |
++---+---+---+
+|   |   |   |
++---+---+---+
