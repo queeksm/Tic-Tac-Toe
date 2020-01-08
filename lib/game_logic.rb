@@ -24,10 +24,6 @@ class Board
     @grid = grid
   end
 
-  def empty_grid
-    Array.new(3) { Array.new(3) { Cell.new } }
-  end
-
   def get_cell(x, y)
     grid[x][y]
   end
@@ -46,6 +42,10 @@ class Board
   end
 
   private
+
+  def empty_grid
+    Array.new(3) { Array.new(3) { Cell.new } }
+  end
 
   def winner?
     for n in 0..2
