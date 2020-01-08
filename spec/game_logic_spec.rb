@@ -56,5 +56,71 @@ RSpec.describe Board do
         expect(board.get_cell(1, 2)).to eq("MAGA")
       end
     end
+
+    context "#set_cell" do
+      it "Fetches a cell and then replaces the value." do
+        board = Board.new
+        board.set_cell(1,1,"WW3")
+        expect(board.get_cell(1,1).value).to eql("WW3")
+      end
+    end
+
+    context "#game_over" do
+      it "Checks for a winning condition on every row" do
+        board = Board.new
+        board.set_cell(0,0,'X')
+        board.set_cell(1,0,'X')
+        board.set_cell(2,0,'X')
+        expect(board.game_over).to eq(:winner)
+      end
+    end
+
+    context "#game_over" do
+      it "Checks for a winning condition on every column" do
+        board = Board.new
+        board.set_cell(0,0,'X')
+        board.set_cell(0,1,'X')
+        board.set_cell(0,2,'X')
+        expect(board.game_over).to eq(:winner)
+      end
+    end
+
+    context "#game_over" do
+      it "Checks for a winning condition on every diagonal" do
+        board = Board.new
+        board.set_cell(0,0,'X')
+        board.set_cell(1,1,'X')
+        board.set_cell(2,2,'X')
+        expect(board.game_over).to eq(:winner)
+      end
+    end
   end
 end
+
+RSpec.describe Game do
+  describe "#turns_switch" do
+    it "switch the player one and player two every turn" do
+      players = [Player.new('p1','X'),Player.new('p2','O')]
+      game = Game.new(players)
+      player1 = game.player_one
+      player2 = game.player_two
+      game.turns_switch
+      expect(player1).to eq(game.player_two)
+    end
+  end
+
+  describe "#human_to_coord" do
+    it "Parses a human input from 1 to 9 into a coordinate (x,y)" do
+      players = [Player.new('p1','X'),Player.new('p2','O')]
+      game = Game.new(players)
+      expect(game.human_to_coord('5')).to eq([1,1])
+    end
+
+    it "Parses a human input from 1 to 9 into a coordinate (x,y)" do
+      players = [Player.new('p1','X'),Player.new('p2','O')]
+      game = Game.new(players)
+      expect(game.human_to_coord('45')).to eq(nil)
+    end
+  end
+end
+
