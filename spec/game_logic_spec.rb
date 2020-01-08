@@ -24,10 +24,37 @@ end
 
 RSpec.describe Board do
   describe '#initialize' do
-    it 'initializes the board to an empty 3x3 grid' do
+    it 'initializes the board without any values' do
       board = Board.new
       cell = Cell.new
-      expect(board.grid).should have(3).items
+      expect(board.grid).to_not include(@value)
+    end
+
+    it 'initializes the board with empty cells' do
+      board = Board.new
+      cell = Cell.new
+      expect(board.grid).to_not include(@cell)
+    end
+
+    it 'initializes the board as an array' do
+      board = Board.new
+      cell = Cell.new
+      expect(board.grid).to be_an_instance_of(Array)
+    end
+
+    context "#grid" do
+      it "returns the grid" do
+        board = Board.new(grid: "iamagrid")
+        expect(board.grid).to eq(grid: "iamagrid")
+      end
+    end
+
+    context "#get_cell" do
+      it "fetches the cell with given (x, y) coordinates" do
+        grid = [["", "", ""], ["", "", "MAGA"], ["", "", ""]]
+        board = Board.new(grid)
+        expect(board.get_cell(1, 2)).to eq("MAGA")
+      end
     end
   end
 end
